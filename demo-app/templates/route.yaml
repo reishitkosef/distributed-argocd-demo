@@ -3,7 +3,7 @@ kind: Route
 metadata:
   name: web-route
 spec:
-  host: ""
+  host: "demo-app.apps.ocp410-dev.cloudlet-dev.com"
   path: "/"
   to:
     kind: Service
