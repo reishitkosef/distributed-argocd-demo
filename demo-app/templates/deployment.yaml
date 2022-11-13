@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-web-deployment
-  namespace: demo-app
+  namespace: openshift-gitops
 spec:
   replicas: {{ .Values.replicaCount }}
   template:
