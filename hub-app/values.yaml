@@ -1,0 +1,10 @@
+spec:
+  destination:
+    server: "https://api.ocp410-dev.cloudlet-dev.com:6443"
+    namespace: "argo-to-argo-app"
+  source:
+    repoURL: https://github.com/DavidDaskalo/argo-to-argo-app
+    targetRevision: HEAD
+  project: default
+argocdNamespace: openshift-gitops
+

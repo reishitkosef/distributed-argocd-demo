@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-web-deployment
+  namespace: demo-app
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      name: web-app
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - image: {{.Values.image}}
+        name: web-app-container
+  selector:
+    matchLabels:
+      app: web-app

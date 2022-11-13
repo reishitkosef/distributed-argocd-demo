@@ -1,0 +1,12 @@
+# Default values for web-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+#
+replicaCount: 4
+image: q29vba/simple_web_app_flask:flotz-0ab08d7b268605183b2de2e6510af3c644f4ad51
+
+service:
+  port: 80
+
+route:
+  hostname: ""
