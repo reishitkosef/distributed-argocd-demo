@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ .Values.appSetName }}
+  namespace: argocd
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          test: hotfix
+  template:
+    metadata:
+      name: '{{ .Values.projectName }}-{{ "{{ metadata.name }}" }}'
+    spec:
+      project: default
+      sources:
+        - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+          targetRevision: main
+          path: environments/hotfix
+          helm:
+            valueFiles:
+            - 'values.yaml'
+            parameters:
+              - name: global.clusterName
+                value: '{{ "{{ metadata.name }}" }}'
+        {{- /*
+        - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+          targetRevision: main
+          path: environments/dev
+          helm:
+            valueFiles:
+            - 'values.yaml'
+            parameters:
+              - name: global.clusterName
+                value: '{{ "{{ metadata.name }}" }}'
+        - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+          targetRevision: main
+          path: environments/prod
+          helm:
+            valueFiles:
+            - 'values.yaml'
+            parameters:
+              - name: global.clusterName
+                value: '{{ "{{ metadata.name }}" }}'
+          */}}
+      destination:
+        name: 'in-cluster'
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: true

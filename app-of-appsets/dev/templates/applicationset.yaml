@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-appsets
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+      targetRevision: main
+      path: environments/prod
+      helm:
+        valueFiles:
+        - 'values.yaml'
+    - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+      targetRevision: main
+      path: environments/dev
+      helm:
+        valueFiles:
+        - 'values.yaml'
+    - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+      targetRevision: main
+      path: environments/hotfix
+      helm:
+        valueFiles:
+        - 'values.yaml'

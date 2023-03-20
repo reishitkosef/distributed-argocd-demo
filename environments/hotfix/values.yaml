@@ -1,0 +1,8 @@
+appSetName: "multinode-hotfixset"
+projectName: "hotfix-appset"
+chartRepo:
+  path: "appset"
+  revision: "master"
+kinds:
+  - kind-cluster-01
+
