@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSeprodt
+kind: ApplicationSet
 metadata:
   name: {{ .Values.appSetName }}
   namespace: argocd
@@ -11,7 +11,7 @@ spec:
           test: prod
   template:
     metadata:
-      name: '{{ .Values.projectName }}-{{ "metadata.labels.<key>"  }}'
+      name: '{{ .Values.projectName }}-{{ "{{ metadata.name }}" }}'
     spec:
       project: default
       sources:
@@ -23,7 +23,7 @@ spec:
             - 'values.yaml'
             parameters:
               - name: global.clusterName
-                value: '{{ metadata.labels.<key> }}'
+                value: '{{ "{{ metadata.name }}" }}'
         {{- /*
         - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
           targetRevision: main
@@ -33,7 +33,7 @@ spec:
             - 'values.yaml'
             parameters:
               - name: global.clusterName
-                value: '{{ metadata.labels.<key> }}'
+                value: '{{ "{{ metadata.name }}" }}'
         - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
           targetRevision: main
           path: environments/dev
@@ -42,7 +42,7 @@ spec:
             - 'values.yaml'
             parameters:
               - name: global.clusterName
-                value: '{{ metadata.labels.<key> }}'
+                value: '{{ "{{ metadata.name }}" }}'
           */}}
       destination:
         name: 'in-cluster'
