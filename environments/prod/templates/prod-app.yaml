@@ -15,9 +15,9 @@ spec:
     spec:
       project: default
       sources:
-        - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
-          targetRevision: main
-          path: environments/prod
+        - repoURL: 'https://github.com/michaelkotelnikov/argocd-bench-list-generator.git'
+          path: list-app-18
+          targetRevision: master
           helm:
             valueFiles:
             - 'values.yaml'
