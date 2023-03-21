@@ -8,7 +8,7 @@ spec:
   - clusters:
       selector:
         matchLabels:
-          dev: true
+          dev: dev
   template:
     metadata:
       name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'

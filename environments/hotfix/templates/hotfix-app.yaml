@@ -8,7 +8,7 @@ spec:
   - clusters:
       selector:
         matchLabels:
-          hotfix: true
+          hotfix: hotfix
   template:
     metadata:
       name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'
