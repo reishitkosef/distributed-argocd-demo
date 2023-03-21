@@ -11,7 +11,7 @@ spec:
           test: hotfix
   template:
     metadata:
-      name: '{{ .Values.projectName }}-{{ "{{ metadata.name }}" }}'
+      name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'
     spec:
       project: default
       sources:
@@ -23,7 +23,7 @@ spec:
             - 'values.yaml'
             parameters:
               - name: global.clusterName
-                value: '{{ "{{ metadata.name }}" }}'
+                value: '{{ "{{ name }}" }}'
         {{- /*
         - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
           targetRevision: main

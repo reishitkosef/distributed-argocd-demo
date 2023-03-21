@@ -15,24 +15,15 @@ spec:
       helm:
         valueFiles:
         - 'values.yaml'
-        parameters:
-          - name: global.clusterName
-            value: '{{ "{{ metadata.name }}" }}'
     - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
       targetRevision: main
       path: environments/dev
       helm:
         valueFiles:
         - 'values.yaml'
-        parameters:
-          - name: global.clusterName
-            value: '{{ "{{ metadata.name }}" }}'
     - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
       targetRevision: main
       path: environments/hotfix
       helm:
         valueFiles:
         - 'values.yaml'
-        parameters:
-          - name: global.clusterName
-            value: '{{ "{{ metadata.name }}" }}'
