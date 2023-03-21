@@ -11,7 +11,7 @@ spec:
           test: dev
   template:
     metadata:
-      name: '{{ .Values.projectName }}-{{ "{{ metadata.name }}" }}'
+      name: '{{ .Values.projectName }}-"{{ metadata.name }}"'
     spec:
       project: default
       sources:
