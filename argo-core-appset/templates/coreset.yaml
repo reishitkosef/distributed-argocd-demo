@@ -17,4 +17,7 @@ spec:
         targetRevision: main
         path: argo-core-files
       destination:
-        name: 'in-cluster'
+        name: '{{ "{{ name }}" }}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
