@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ .Values.appSetName }}
+  namespace: argocd
+spec:
+  generators:
+  - clusters: {}
+  template:
+    metadata:
+      name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+        targetRevision: main
+        path: hub-appset
+      destination:
+        name: '{{ "{{ name }}" }}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

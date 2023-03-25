@@ -6,4 +6,4 @@ spec:
     repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo
     targetRevision: HEAD
   project: default
-argocdNamespace: openshift-gitops
+argocdNamespace: argocd

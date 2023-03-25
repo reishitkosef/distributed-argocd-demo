@@ -1,0 +1,6 @@
+appSetName: "hubset"
+projectName: "hub-appset"
+chartRepo:
+  path: "hub-appset"
+  revision: "master"
+
