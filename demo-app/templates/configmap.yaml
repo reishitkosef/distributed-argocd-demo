@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   application.html: |
-    {{ .Values.global.clusterName }}-{{ .Values.application.content }}
+    {{ .Values.application.content }}
 kind: ConfigMap
 metadata:
   name: application-prod
