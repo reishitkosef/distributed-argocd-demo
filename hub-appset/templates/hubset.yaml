@@ -15,7 +15,7 @@ spec:
       source:
         repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
         targetRevision: main
-        path: hub-appset
+        path: edge-app
       destination:
         name: '{{ "{{ name }}" }}'
       syncPolicy:
