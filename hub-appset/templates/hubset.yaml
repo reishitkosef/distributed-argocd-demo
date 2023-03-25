@@ -24,6 +24,3 @@ spec:
               value: '{{ "{{ name }}" }}'
       destination:
         name: '{{ "{{ name }}" }}'
-      syncPolicy:
-        syncOptions:
-          - CreateNamespace=true
