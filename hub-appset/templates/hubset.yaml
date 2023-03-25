@@ -16,6 +16,12 @@ spec:
         repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
         targetRevision: main
         path: edge-app
+        helm:
+          valueFiles:
+          - 'values.yaml'
+          parameters:
+            - name: global.clusterName
+              value: '{{ "{{ name }}" }}'
       destination:
         name: '{{ "{{ name }}" }}'
       syncPolicy:
