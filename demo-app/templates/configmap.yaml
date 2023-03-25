@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   application.html: |
-    <h1>{{ .Values.global.clusterName }} - application </h1>
+    '<h1>{{ .Values.global.clusterName }} - application </h1>'
 kind: ConfigMap
 metadata:
   name: application-prod
