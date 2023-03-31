@@ -5,3 +5,5 @@ chartRepo:
   revision: "master"
 kinds:
   - kind-cluster-01
+keyName: env
+keyValue: prod
