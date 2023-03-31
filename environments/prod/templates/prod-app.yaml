@@ -20,7 +20,7 @@ spec:
           targetRevision: master
           helm:
             valueFiles:
-            - '{{ "{{ metadata.labels.env }}" }}'
+            - '{{ "{{ metadata.labels.env }}" }}.yaml'
             parameters:
               - name: global.envName
                 value: '{{ "{{ metadata.labels.env }}" }}'
