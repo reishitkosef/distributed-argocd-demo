@@ -7,3 +7,4 @@ kinds:
   - kind-cluster-01
 keyName: env
 keyValue: prod
+keyPrefix: .metadata.labels.

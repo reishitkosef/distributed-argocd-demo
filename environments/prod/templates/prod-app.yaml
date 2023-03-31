@@ -8,7 +8,7 @@ spec:
   - clusters:
       selector:
         matchLabels:
-          env: dev
+          env: prod
   template:
     metadata:
       name: '{{ .Values.projectName }}-{{ "{{ name }}" }}-{{ "{{ metadata.labels.env }}" }}'
@@ -20,7 +20,7 @@ spec:
           targetRevision: master
           helm:
             valueFiles:
-            - 'values.yaml'
+            - '{{ "{{ metadata.labels.env }}" }}'
             parameters:
               - name: global.envName
                 value: '{{ "{{ metadata.labels.env }}" }}'
