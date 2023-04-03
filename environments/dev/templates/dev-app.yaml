@@ -8,11 +8,10 @@ spec:
   - clusters:
       selector:
         matchLabels:
-          dev: "True"
-          prod: "True"
+          env: dev
   template:
     metadata:
-      name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'
+      name: '{{ .Values.projectName }}-{{ "{{ name }}" }}-{{ "{{ metadata.labels.env }}" }}'
     spec:
       project: default
       sources:
@@ -23,8 +22,8 @@ spec:
             valueFiles:
             - 'values.yaml'
             parameters:
-              - name: global.clusterName
-                value: '{{ "{{ name }}" }}'
+              - name: global.envName
+                value: '{{ "{{ metadata.labels.env }}" }}'
         {{- /*
         - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
           targetRevision: main
