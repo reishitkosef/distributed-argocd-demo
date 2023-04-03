@@ -9,21 +9,14 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   sources:
-    - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
+    {{- range $labelName, $label := .Values.labels }}
+    - helm:
+        parameters:
+          - name: {{ $label.keyName }}
+            value: {{ $label.keyValue }}
+        valueFiles:
+          - {{ $labelName }}.yaml
+      repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
       targetRevision: main
       path: environments/prod
-      helm:
-        valueFiles:
-        - 'values.yaml'
-    - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
-      targetRevision: main
-      path: environments/dev
-      helm:
-        valueFiles:
-        - 'values.yaml'
-    - repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
-      targetRevision: main
-      path: environments/hotfix
-      helm:
-        valueFiles:
-        - 'values.yaml'
+    {{- end}}

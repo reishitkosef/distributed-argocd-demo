@@ -9,6 +9,7 @@ spec:
       selector:
         matchLabels:
           dev: "True"
+          prod: "True"
   template:
     metadata:
       name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'
