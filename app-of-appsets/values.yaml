@@ -5,4 +5,13 @@ chartRepo:
   revision: "master"
 kinds:
   - kind-cluster-01
-
+labels:
+  prod:
+    keyName: prod
+    keyValue: prod
+  dev:
+    keyName: dev
+    keyValue: dev
+  hotfix:
+    keyName: hotfix
+    keyValue: hotfix

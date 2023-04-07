@@ -19,8 +19,4 @@ spec:
       repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git
       targetRevision: main
       path: environments/prod
-<<<<<<< HEAD
     {{- end}}
-=======
-    {{- end}}
->>>>>>> d7bdd2fa90a0e6b72dae88c90d2744257583a910
