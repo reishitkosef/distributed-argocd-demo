@@ -5,13 +5,15 @@ metadata:
   namespace: argocd
 spec:
   generators:
+  {{- range $labelName, $label := .Values.labels }}
   - clusters:
       selector:
         matchLabels:
-          env: prod
+          {{ $label.keyName }}: {{ $label.keyValue }}
+  {{- end}}
   template:
     metadata:
-      name: '{{ .Values.projectName }}-{{ "{{ name }}" }}-{{ "{{ metadata.labels.env }}" }}'
+      name: '{{ .Values.projectName }}-{{ "{{ name }}" }}-{{ printf "{{ %s%s }}" values.service.keyName values.labelName }} }}'
     spec:
       project: default
       sources:
