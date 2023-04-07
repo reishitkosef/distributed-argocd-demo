@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: "1.0"
-description: "Argo cluster management"
-name: argo-cluster-management
-version: 1.0.0

@@ -13,11 +13,7 @@ spec:
     - helm:
         parameters:
           - name: {{ $label.keyName }}
-<<<<<<< HEAD
             value: {{ $label.keyValue | quote }}
-=======
-            value: {{ $label.keyValue }}
->>>>>>> d7bdd2fa90a0e6b72dae88c90d2744257583a910
         valueFiles:
           - {{ $labelName }}.yaml
       repoURL: https://github.com/DavidDaskalo/distributed-argocd-demo.git

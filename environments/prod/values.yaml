@@ -5,11 +5,6 @@ chartRepo:
   revision: "master"
 kinds:
   - kind-cluster-01
-labels:
-  prod:
-    keyName: env
-    keyValue: prod
-  dev:
-    keyName: env
-    keyValue: dev
+keyName: env
+keyValue: prod
 keyPrefix: .metadata.labels.
