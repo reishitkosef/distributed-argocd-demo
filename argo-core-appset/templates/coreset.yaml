@@ -2,14 +2,20 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: {{ .Values.appSetName }}
-  namespace: argocd
+  namespace: {{ .Values.namespace }}
 spec:
   generators:
-  - clusters: {}
+  - clusters: 
+      selector:
+        matchExpressions:
+          - key: type
+            operator: NotIn
+            values:
+              - prod
   template:
     metadata:
       name: '{{ .Values.projectName }}-{{ "{{ name }}" }}'
-      namespace: argocd
+      namespace: {{ .Values.namespace }}
     spec:
       project: default
       source:
@@ -18,6 +24,7 @@ spec:
         path: argo-core-files
       destination:
         name: '{{ "{{ name }}" }}'
+        namespace: argocd
       syncPolicy:
         syncOptions:
           - CreateNamespace=true

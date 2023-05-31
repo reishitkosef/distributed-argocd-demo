@@ -3,4 +3,4 @@ projectName: "core-appset"
 chartRepo:
   path: "appset"
   revision: "master"
-
+namespace: "ebutz"
